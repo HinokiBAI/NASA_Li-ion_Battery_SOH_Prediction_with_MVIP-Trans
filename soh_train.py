@@ -491,8 +491,8 @@ def experiment(series5, series6, series7, series18, series45, series46, series47
             inputs = inputs.reshape(14, 1, 660, 4)
             optimizer.zero_grad()
             # print(inputs.shape)
-            inputs = inputs.to(torch.float32)
-            labels = labels.to(torch.float32)
+            inputs = inputs.to(torch.float64)
+            labels = labels.to(torch.float64)
             # y_pred = ViT(inputs, weight)
             y_pred, _, _ = model(inputs)
             # y_pred = y_pred.reshape(14, 1)
@@ -520,8 +520,8 @@ def experiment(series5, series6, series7, series18, series45, series46, series47
         inputs, labels = data
         inputs, labels = inputs.to(device), labels.to(device)
         inputs = inputs.reshape(14, 1, 660, 4)
-        inputs = inputs.to(torch.float32)
-        labels = labels.to(torch.float32)
+        inputs = inputs.to(torch.float64)
+        labels = labels.to(torch.float64)
         yhat, a, b = model(inputs)
         # inverting scale
         print(a.shape)
